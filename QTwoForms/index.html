@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hugo Zhang</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <style type="text/css">
+    .hugo-label{
+      width:100px;
+    }
+  </style>
+ <script type="text/javascript">
+      jQuery(document).ready(function ($) {
+          var dataInfo = { "firstName":"", "firstName":"", "age":null, "gender":"" };;
+
+          $("#btn-next1").click(function(){
+              dataInfo.firstName = $("#firstName").val();
+              dataInfo.secondName = $("#secondName").val();
+
+              $("#row1").hide();
+              $("#row2").show();
+
+          });
+
+          $("#btn-next2").click(function(){
+            
+              dataInfo.age = $("#age").val();
+              dataInfo.gender = $( "input:checked" ).val();
+
+              $("#dis-fn").text(dataInfo.firstName);
+              $("#dis-sn").text(dataInfo.secondName);
+              $("#dis-age").text(dataInfo.age);
+              $("#dis-gd").text(dataInfo.gender);
+              
+              $("#row1").hide();
+              $("#row2").hide();
+              $("#row3").show();
+          });
+
+
+          $('input[type="checkbox"]').on('change', function() {
+             $('input[type="checkbox"]').not(this).prop('checked', false);
+          });
+
+
+      });
+
+
+  </script>
+<body>
+  <div class="container">
+    <p class="lead">Fill in the forms</p>
+    
+    <div class="row" id="row1">
+        <div class="col-4"></div>
+        <div class="col-4">
+          <h3>Step 1</h3>
+          <form id="form1">
+            <div class="form-group form-inline">
+              <label for="firstName" class="hugo-label">First Name :</label>
+              <input id="firstName" type="text" class="form-control" placeholder="First Name" aria-describedby="sizing-addon1" style="width: 400px;">
+            </div>
+            <div class="form-group form-inline">
+              <label for="secondName" class="hugo-label">Second Name:</label>
+              <input id="secondName" type="text" class="form-control" placeholder="Second Name" aria-describedby="sizing-addon1" style="width: 400px;">
+            </div>
+            <button id="btn-next1" type="button" class="btn btn-info">Next</button>
+          </form>
+        </div>
+        <div class="col-4"></div>
+    </div>
+    <div class="row" id="row2" style="display:none">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <h3>Step 2</h3>
+
+            <form id="form2">
+              <div class="form-group form-inline">
+                <label for="age" class="hugo-label">Age:</label>
+                <input id="age" type="number" class="form-control" placeholder="Age" aria-describedby="sizing-addon1" style="width: 400px;">
+              </div>
+              <div class="form-group form-inline">
+                <label class="hugo-label">Gender:</label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" class="filled-in form-check-input hugo-check" id="male" value="Male">Male
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" class="filled-in form-check-input" id="female" value="Female">Female
+                </label>
+              </div>
+              <button id="btn-next2" type="button" class="btn btn-info">Next</button>
+            </form>
+        </div>
+        <div class="col-4"></div>
+    </div>
+    <div class="row" id="row3" style="display:none">
+      <div class="col-4"></div>
+      <div class="col-4">
+      
+        <div class="panel panel-default">
+          <div class="panel-heading">Result values</div>
+          <div class="panel-body">
+              <div class="form-group form-inline">
+                 <label class="hugo-label">First Name:</label>
+                 <label id="dis-fn" class="hugo-label"></label>
+              </div>
+              <div class="form-group form-inline">
+                 <label class="hugo-label">Second Name:</label>
+                 <label id="dis-sn" class="hugo-label"></label>
+              </div>
+              <div class="form-group form-inline">
+                 <label class="hugo-label">Age:</label>
+                 <label id="dis-age" class="hugo-label"></label>
+              </div>
+              <div class="form-group form-inline">
+                 <label class="hugo-label">Gender:</label>
+                 <label id="dis-gd" class="hugo-label"></label>
+              </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-4"></div>
+
+
+    </div>
+  </div>
+   
+</body>
+</html>
